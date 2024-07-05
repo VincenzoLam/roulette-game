@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="rouletteCanvas"></canvas>
+        
+        <div class="control-panel">
+            <div class="info-row">
+                <div id="balance" class="info">Balance: 100 chips</div>
+                <div id="performance" class="info">Performance Metrics:</div>
+            </div>
+
+            <label for="numPositions">Number of positions to bet (1-9):</label>
+            <input type="range" id="numPositions" name="numPositions" min="1" max="9" value="1" oninput="updateSliderValue(this.value)">
+            <span id="sliderValue">1</span>
+
+            <div class="button-row">
+                <button onclick="randomPick()">Random Pick</button>
+                <button onclick="startSpeedRun()">Start Speed Run</button>
+                <button onclick="checkGuess()">Check Guess</button>
+            </div>
+
+            <label for="winningsGuess">Guess the total winnings:</label>
+            <input type="text" id="winningsGuess" onkeydown="if (event.key === 'Enter') checkGuess()">
+
+            <div id="numberPad" class="number-pad">
+                <button onclick="numberPadClick('7')">7</button>
+                <button onclick="numberPadClick('8')">8</button>
+                <button onclick="numberPadClick('9')">9</button>
+                <button onclick="numberPadClick('4')">4</button>
+                <button onclick="numberPadClick('5')">5</button>
+                <button onclick="numberPadClick('6')">6</button>
+                <button onclick="numberPadClick('1')">1</button>
+                <button onclick="numberPadClick('2')">2</button>
+                <button onclick="numberPadClick('3')">3</button>
+                <button onclick="numberPadClick('0')">0</button>
+                <button onclick="numberPadClick('Clear')">Clear</button>
+                <button onclick="numberPadClick('Enter')">Enter</button>
+            </div>
+
+            <div id="result" class="info"></div>
+            <button id="toggleTheme" onclick="toggleTheme()">Switch to Casino Theme</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
